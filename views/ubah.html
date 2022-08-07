@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/material-icon.css" rel="stylesheet">
+    <title>Learn Golang {{.Pesan}}</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="/static/img/logo-go.png" alt="" width="60" height="24" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Task</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="button">Search</button>
+                </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <h2 class="my-3">Edit Task</h2>
+                    <form class="mt-2" method="POST" action="/ubah">
+                        <div class="mb-3">
+                            <label class="form-label">ID</label>
+                            <input type="text" name="id" class="form-control" value="{{ (index .Data 0).Id }}" readonly="readonly">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Task</label>
+                            <input type="text" name="task" value="{{ (index .Data 0).Task }}"  class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Assignee</label>
+                            <input type="text" name="assignee" value="{{ (index .Data 0).Assignee }}"  class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Deadline</label>
+                            <input type="date" name="deadline" value="{{ (index .Data 0).Deadline }}"  class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary" value="Tambah">Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <span>
+            Digitalent &copy; Kominfo
+        </label>
+        <ul>
+            <li class="nav-item"><a href="#">Privacy Policy</a></li>
+            <li class="nav-item"><a href="#">Terms of use</a></li>
+        </ul>
+    </footer> 
+</body>
+</html>
